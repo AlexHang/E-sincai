@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html>
+    <!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="media_button_bar/css/media_button_bar.css">
+        <link rel="stylesheet" type="text/css" href="galleria/galleria.classic.css">
+        <link rel="stylesheet" type="text/css" href="framework7/css/framework7.ios.min.css" class="uib-framework-theme">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="framework7/css/framework7.ios.colors.min.css" class="uib-framework-theme">
+        <title>Blank App Designer Cordova Web App Project Template</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+        <!--
+  * The "meta viewport" tag (below) helps your app size appropriately to a device's ideal viewport.
+  * Note that Windows device viewports work better when initialized using the @viewport CSS rule.
+  * For a quick overview of "meta viewport" and @viewport, see this article:
+  *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+  * To see how it works, try your app on a real device with and without a "meta viewport" tag.
+  * Additional useful references include:
+  *   http://www.quirksmode.org/mobile/viewports.html
+  *   http://www.quirksmode.org/mobile/metaviewport/devices.html
+  *   https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+-->
+
+        <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+
+        <style>
+            /* following three (cascaded) are equivalent to above three meta viewport statements */
+            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+            /* see http://dev.w3.org/csswg/css-device-adapt/ */
+                @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+                @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+                /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+        </style>
+
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+
+        <!-- Recommended location for your JavaScript libraries -->
+        <!-- These library references (below) are just examples to give you the general idea... -->
+        <!-- <script src="lib/mc/hammer.js"></script> -->
+        <!-- <script src="lib/ft/fastclick.js"></script> -->
+
+        <!--
+  * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+  * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
+  * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+  * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+-->
+        <script src="cordova.js" id="xdkJScordova_"></script>
+
+        <script src="js/app.js"></script>
+        <!-- for your event code, see README and file comments for details -->
+        <script src="js/init-app.js"></script>
+        <!-- for your init code, see README and file comments for details -->
+        <script src="xdk/init-dev.js"></script>
+        <!-- normalizes device and document ready events, see file for details -->
+        <script type="application/javascript" src="lib/jquery.min.js"></script>
+        <script type="application/javascript" src="framework7/js/framework7.min.js"></script>
+        <script type="application/javascript" src="js/index_user_scripts.js"></script>
+        <script type="application/javascript" src="xdk/ad/fw7_subpage.js"></script>
+        <script type="application/javascript" src="js/calendar.js"></script>
+        <script type="application/javascript" src="galleria/galleria-1.3.6.min.js"></script>
+        <script type="application/javascript" src="galleria/galleria.classic.min.js"></script>
+        <script type="application/javascript" src="galleria/galleria-startup.js"></script>
+        <script type="application/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+        <script type="application/javascript" src="google_maps/google_maps.js"></script>
+        <script type="application/javascript" src="http://api-maps.yandex.ru/2.0-stable/?load=package.standard,package.geoObjects&amp;lang=en-US"></script>
+        <script type="application/javascript" src="yandex_maps/yandex_maps.js"></script>
+    </head>
+
+    <body>
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+        <div class="uwrap views">
+            <div class="panel-overlay"></div>
+            <div class="upage view-main view mainbackground" id="mainpage">
+                <div class="pages">
+
+                    <div class="page navbar-fixed toolbar-fixed">
+                        <div class="navbar inner-element uib_w_1 headerback" data-uib="framework7/header" data-ver="0">
+                            <div class="navbar-inner">
+                                <div class="left">
+                                    <div class="widget-container content-area horiz-area wrapping-col">
+                                      <button data-panel="right" class="open-panel">Pannel</button>
+                                    </div>
+                                </div>
+                                <div class="center labeltext">Colegiul National Gheorghe Sincai</div>
+                                <div class="right">
+                                    <div class="widget-container content-area horiz-area wrapping-col"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="upage-content ac0 content-area vertical-col left page-content" id="page_51_22">
+                            <div class="buttons-row widget uib_w_10 d-margins" data-uib="framework7/button_group" data-ver="0"><a class="button widget uib_w_11" data-uib="framework7/button" data-ver="0"><span>Acasa</span></a><a class="button widget uib_w_12" data-uib="framework7/button" data-ver="0"><span>Istoric</span></a><a class="button widget uib_w_13"
+                                data-uib="framework7/button" data-ver="0"><span>Orar</span></a>
+                            </div>
+                            <div class="buttons-row widget uib_w_6 d-margins" data-uib="framework7/button_group" data-ver="0"><a class="button widget uib_w_7" data-uib="framework7/button" data-ver="0"><span>Catalog</span></a><a class="button widget uib_w_8" data-uib="framework7/button" data-ver="0"><span>Teste</span></a><a class="button widget uib_w_9"
+                                data-uib="framework7/button" data-ver="0"><span>Button</span></a>
+                            </div>
+                            <div class="galleria image-gallery-size widget uib_w_17 d-margins" data-uib="media/image_gallery" data-ver="0" data-sm-trigger="true" images-json="gallery_images/gallery_images.json">
+                            </div>
+                            <div class="widget uib_w_20 maps-size d-margins" data-uib="media/google_maps" data-ver="0" data-rpath="null" data-zoom="8" data-long="26.103959" data-lat="44.414062" data-animate-marker="bounce" data-center-longitude="26.103959" data-center-latitude="44.414062"
+                            data-marker-title="Suntem aici"></div>
+
+                        </div>
+                        <div class="toolbar inner-element uib_w_14" data-uib="framework7/footer" data-ver="0">
+                            <div class="toolbar-inner container-group">
+                                <div class="widget-container content-area horiz-area wrapping-col left"></div>
+                                <div class="widget-container wrapping-col single-centered">Created by Alex Hang</div>
+                                <div class="widget-container content-area horiz-area wrapping-col right"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="upage vertical-col left hidden view" id="Orar">
+                <div class="pages">
+
+                    <div class="page">
+
+                        <div class="page-content upage-content content-area" id="page_43_84">
+
+                            <button onclick="editOrar()">Editeaza orarul</button>
+                            <button onclick="showOrar()">Afisaza orarul</button>
+                            <button onclick="citesteOrar()">CitesteOrarul</button>
+                            <table style="width:100%" border="2px">
+
+                                <thead>
+                                    <tr>
+                                        <td>Ora</td>
+                                        <td>Materia</td>
+
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>8-9</td>
+                                        <td>
+                                            <p id="8-9"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>9-10</td>
+                                        <td>
+                                            <p id="9-10"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            10-11
+                                        </td>
+                                        <td>
+                                            <p id="10-11"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            11-12
+                                        </td>
+                                        <td>
+                                            <p id="11-12"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            12-13
+                                        </td>
+                                        <td>
+                                            <p id="12-13"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            13-14
+                                        </td>
+                                        <td>
+                                            <p id="13-14"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            14-15
+                                        </td>
+                                        <td>
+                                            <p id="14-15"></p>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="upage vertical-col left hidden view" id="Catalog">
+                <div class="pages">
+
+                    <div class="page">
+                        <div class="page-content upage-content content-area" id="page_91_48">
+                            <button onclick="formatarecatalog()">Formatare Catalog</button>
+                            <table style="width:100%" border="2px">
+                                <thead>
+                                    <tr>
+                                        <th>
+
+                                        </th>
+                                        <th>
+                                            <p><b>Materia</b>
+                                            </p>
+                                        </th>
+                                        <th>
+                                            <p><b>Note</b>
+                                            </p>
+                                        </th>
+                                        <th>
+                                            <p><b>Teza</b>
+                                            </p>
+                                        </th>
+                                        <th>
+                                            <p><b>Media</b>
+                                            </p>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id="romana">
+                                        <td align="center">
+                                            <input type="checkbox" id="romanacheck" onclick="colorarecatalog()">
+                                        </td>
+                                        <td>
+                                            <p>Romana</p>
+                                        </td>
+                                        <td>
+                                            <input type="text" size="2" id="int_note_romana">
+                                            <button onclick="romananote()">OK</button>
+                                            <br>
+                                            <p id="note_romana"></p>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="tezaromanacheck">
+                                            <input type="text" size="2" id="int_teza_romana">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="teza_romana"></p>
+                                        </td>
+                                        <td>
+                                            <p id="mediaromana"></p>
+                                        </td>
+
+                                    </tr>
+                                    <tr id="engleza">
+                                        <td align="center">
+                                            <input type="checkbox" id="englezacheck" onclick="colorarecatalog()">
+                                        </td>
+                                        <td>
+                                            <p>Engleza</p>
+                                        </td>
+                                        <td>
+                                            <input type="text" size="2" id="int_note_engleza">
+                                            <button onclick="englezanote()">OK</button>
+                                            <br>
+                                            <p id="note_engleza"></p>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="tezaenglezacheck">
+                                            <input type="text" size="2" id="int_teza_engleza">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="teza_engleza"></p>
+                                        </td>
+                                        <td>
+                                            <p id="mediaengleza"></p>
+                                        </td>
+                                    </tr>
+                                    <tr id="franceza">
+                                        <td align="center">
+                                            <input type="checkbox" id="francezacheck" onclick="colorarecatalog()">
+                                        </td>
+                                        <td>
+                                            <p>Franceza</p>
+                                        </td>
+                                        <td>
+                                            <input type="text" size="2" id="int_note_franceza">
+                                            <button onclick="francezanote()">OK</button>
+                                            <br>
+                                            <p id="note_franceza"></p>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="tezafrancezacheck">
+                                            <input type="text" size="2" id="int_teza_franceza">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="teza_franceza"></p>
+                                        </td>
+                                        <td>
+                                            <p id="mediafranceza"></p>
+                                        </td>
+                                    </tr>
+                                    <tr id="latina">
+                                        <td align="center">
+                                            <input type="checkbox" id="latinacheck" onclick="colorarecatalog()">
+                                        </td>
+                                        <td>
+                                            <p>Latina</p>
+                                        </td>
+                                        <td>
+                                            <input type="text" size="2" id="int_note_latina">
+                                            <button onclick="latinanote()">OK</button>
+                                            <br>
+                                            <p id="note_latina"></p>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="tezalatinacheck">
+                                            <input type="text" size="2" id="int_teza_latina">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="teza_latina"></p>
+                                        </td>
+                                        <td>
+                                            <p id="medialatina"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr id="mate">
+                                        <td align="center">
+                                            <input type="checkbox" id="matecheck" onclick="colorarecatalog()">
+                                        </td>
+                                        <td>
+                                            <p>Matematica</p>
+                                        </td>
+                                        <td>
+                                            <input type="text" size="2" id="int_note_mate">
+                                            <button onclick="matenote()">OK</button>
+                                            <br>
+                                            <p id="note_mate"></p>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="tezamatecheck">
+                                            <input type="text" size="2" id="int_teza_mate">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="teza_mate"></p>
+                                        </td>
+                                        <td>
+                                            <p id="mediamate"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr id="fizica">
+                                        <td align="center">
+                                            <input type="checkbox" id="fizicacheck" onclick="colorarecatalog()">
+                                        </td>
+                                        <td>
+                                            <p>Fizica</p>
+                                        </td>
+                                        <td>
+                                            <input type="text" size="2" id="int_note_fizica">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="note_fizica"></p>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="tezafizicacheck">
+                                            <input type="text" size="2" id="int_teza_fizica">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="teza_fizica"></p>
+                                        </td>
+                                        <td>
+                                            <p id="mediafizica"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr id="chimie">
+                                        <td align="center">
+                                            <input type="checkbox" id="chimiecheck" onclick="colorarecatalog()">
+                                        </td>
+                                        <td>
+                                            <p>Chimie</p>
+                                        </td>
+                                        <td>
+                                            <input type="text" size="2" id="int_note_chimie">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="note_chimie"></p>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="tezachimiecheck">
+                                            <input type="text" size="2" id="int_teza_chimie">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="teza_chimie"></p>
+                                        </td>
+                                        <td>
+                                            <p id="mediachimie"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr id="biologie">
+                                        <td align="center">
+                                            <input type="checkbox" id="biocheck" onclick="colorarecatalog()">
+                                        </td>
+                                        <td>
+                                            <p>Biologie</p>
+                                        </td>
+                                        <td>
+                                            <input type="text" size="2" id="int_note_bio">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="note_bio"></p>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="tezabiocheck">
+                                            <input type="text" size="2" id="int_teza_bio">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="teza_bio"></p>
+                                        </td>
+                                        <td>
+                                            <p id="mediabio"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr id="istorie">
+                                        <td align="center">
+                                            <input type="checkbox" id="istoriecheck" onclick="colorarecatalog()">
+                                        </td>
+                                        <td>
+                                            <p>Istorie</p>
+                                        </td>
+                                        <td>
+                                            <input type="text" size="2" id="int_note_istorie">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="note_istorie"></p>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="tezaistoriecheck">
+                                            <input type="text" size="2" id="int_teza_istorie">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="teza_istorie"></p>
+                                        </td>
+                                        <td>
+                                            <p id="mediaistorie"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr id="geografie">
+                                        <td align="center">
+                                            <input type="checkbox" id="geogracheck" onclick="colorarecatalog()">
+                                        </td>
+                                        <td>
+                                            <p>Geografie</p>
+                                        </td>
+                                        <td>
+                                            <input type="text" size="2" id="int_note_geogra">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="note_geogra"></p>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="tezageogracheck">
+                                            <input type="text" size="2" id="int_teza_geogra">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="teza_geogra"></p>
+                                        </td>
+                                        <td>
+                                            <p id="mediageogra"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr id="socio">
+                                        <td align="center">
+                                            <input type="checkbox" id="sociocheck" onclick="colorarecatalog()">
+                                        </td>
+                                        <td>
+                                            <p>Socio-umane</p>
+                                        </td>
+                                        <td>
+                                            <input type="text" size="2" id="int_note_socio">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="note_socio"></p>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="tezasociocheck">
+                                            <input type="text" size="2" id="int_teza_socio">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="teza_socio"></p>
+                                        </td>
+                                        <td>
+                                            <p id="mediasocio"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr id="religie">
+                                        <td align="center">
+                                            <input type="checkbox" id="religiecheck" onclick="colorarecatalog()">
+                                        </td>
+                                        <td>
+                                            <p>Religie</p>
+                                        </td>
+                                        <td>
+                                            <input type="text" size="2" id="int_note_religie">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="note_religie"></p>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="tezareligiecheck">
+                                            <input type="text" size="2" id="int_teza_religie">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="teza_religie"></p>
+                                        </td>
+                                        <td>
+                                            <p id="mediareligie"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr id="muzica">
+                                        <td align="center">
+                                            <input type="checkbox" id="muzicacheck" onclick="colorarecatalog()">
+                                        </td>
+                                        <td>
+                                            <p>Muzica</p>
+                                        </td>
+                                        <td>
+                                            <input type="text" size="2" id="int_note_muzica">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="note_muzica"></p>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="tezamuzicacheck">
+                                            <input type="text" size="2" id="int_teza_muzica">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="teza_muzica"></p>
+                                        </td>
+                                        <td>
+                                            <p id="mediamuzica"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr id="desen">
+                                        <td align="center">
+                                            <input type="checkbox" id="desencheck" onclick="colorarecatalog()">
+                                        </td>
+                                        <td>
+                                            <p>Desen</p>
+                                        </td>
+                                        <td>
+                                            <input type="text" size="2" id="int_note_desen">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="note_desen"></p>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="tezadesencheck">
+                                            <input type="text" size="2" id="int_teza_desen">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="teza_desen"></p>
+                                        </td>
+                                        <td>
+                                            <p id="mediadesen"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr id="sport">
+                                        <td align="center">
+                                            <input type="checkbox" id="sportcheck" onclick="colorarecatalog()">
+                                        </td>
+                                        <td>
+                                            <p>Sport</p>
+                                        </td>
+                                        <td>
+                                            <input type="text" size="2" id="int_note_sport">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="note_sport"></p>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="tezasportcheck">
+                                            <input type="text" size="2" id="int_teza_sport">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="teza_sport"></p>
+                                        </td>
+                                        <td>
+                                            <p id="mediasport"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr id="info">
+                                        <td align="center">
+                                            <input type="checkbox" id="infocheck" onclick="colorarecatalog()">
+                                        </td>
+                                        <td>
+                                            <p>Informatica</p>
+                                        </td>
+                                        <td>
+                                            <input type="text" size="2" id="int_note_info">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="note_info"></p>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="tezainfocheck">
+                                            <input type="text" size="2" id="int_teza_info">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="teza_info"></p>
+                                        </td>
+                                        <td>
+                                            <p id="mediainfo"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr id="tic">
+                                        <td align="center">
+                                            <input type="checkbox" id="ticcheck" onclick="colorarecatalog()">
+                                        </td>
+                                        <td>
+                                            <p>TIC</p>
+                                        </td>
+                                        <td>
+                                            <input type="text" size="2" id="int_note_tic">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="note_tic"></p>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="tezaticcheck">
+                                            <input type="text" size="2" id="int_teza_tic">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="teza_tic"></p>
+                                        </td>
+                                        <td>
+                                            <p id="mediatic"></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr id="atp">
+                                        <td align="center">
+                                            <input type="checkbox" id="atpcheck" onclick="colorarecatalog()">
+                                        </td>
+                                        <td>
+                                            <p>ATP</p>
+                                        </td>
+                                        <td>
+                                            <input type="text" size="2" id="int_note_atp">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="note_atp"></p>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="tezaatpcheck">
+                                            <input type="text" size="2" id="int_teza_atp">
+                                            <button>OK</button>
+                                            <br>
+                                            <p id="teza_atp"></p>
+                                        </td>
+                                        <td>
+                                            <p id="mediaatp"></p>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                            <a class="button widget uib_w_15 d-margins" data-uib="framework7/button" data-ver="0"><span>Button</span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="upage vertical-col left hidden view mainbackground" id="despre_noi">
+                <div class="pages">
+
+                    <div class="page">
+                        <div class="page-content upage-content content-area" id="page_56_77">
+                            <div class="tarea widget uib_w_18 d-margins" data-uib="media/text" data-ver="0" name="uib_w_18">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div class="text-container">
+                                    <p style="font-style: italic;"><u><em><strong>In toamna anului 1890 în cadrul Liceului Matei Basarab, datorită numărului mare de elevi, s-au creat două clase divizionare (I şi II gimnaziu) ce au fost mutate într-o clădire situată în curtea bisericii Sfântu Gheorghe Vechi. În toamna anului 1891, prin raportul nr. 105 din 25 octombrie trimis la Ministerul Cultelor şi Instrucţiunii Publice, directorul Liceului Matei Basarab, arătând că pentru clasa a III de gimnaziu are un numar mare de elevi, solicita înfiinţarea unei a treia clase divizionare. Solicitarea a fost aprobată de către ministrul Gh. Dem. Teodorescu. La doar câteva săptămâni s-a solicitat înfiinţarea unei a patra clase divizionare cu elevi de clasa IV gimnaziu. Cum între timp în funcţia de Ministru al Cultelor şi Instrucţiunii Publice fusese numit Petru Poni, acesta a respins solicitarea directorului.</strong></em></u>
+                                    </p>
+
+                                    <p style="font-style: italic;"><u><em><strong>În anul următor, ministru este numit Take Ionescu.</strong></em></u>
+                                    </p>
+
+                                    <p style="font-style: italic;"><u><em><strong>Profitând de această nouă schimbare prof. Zossima Demarat directorul Liceului Matei Basarab face un nou raport prin care solicita înfiinţarea celei de a patra clase divizionare. Ministrul este favorabil solicitării directorului, dar îi comunică faptul că Ministerul nu poate asigura salariile noilor profesori până la 1 aprilie 1893 deoarece sumele respective nu fuseseră prevăzute în buget.</strong></em></u>
+                                    </p>
+
+                                    <p style="font-style: italic;"><u><em><strong>Din acel moment se creează un grup de iniţiativă care strânge un număr de profesori dispuşi să profeseze fără nicio plată până în aprilie 1893. În urma întocmirii listei cu profesorii voluntari se face un raport către Minister care în final va avea ca efect decretul regal de înfiinţare a Gimnaziului Clasic Gheorghe Şincai.</strong></em></u>
+                                    </p>
+
+                                    <p style="font-style: italic;"><u><em><strong>CAROL I</strong></em></u>
+                                    </p>
+
+                                    <p style="font-style: italic;"><u><em><strong>Prin gratia lui Dumnezeu si vointa nationala, Rege al Romaniei.<br>
+La toti de fata si viitori, sanatate.<br>
+Asupra raportului Ministrului Nostru Secretar de Stat la Departamentul Cultelor si Instructiunei Publice sub nr. 2515;<br>
+Vazand jurnalul Consiliului de Ministri sub nr. 12 din 3 decembrie 1892; Am decretat si decretam:Art. I.<br>
+Se aproba ca din actualele patru clase divizionare complete pe langa Liceul “Matei Basarab”, instalate in vechiul local “Lazar”, sa se constituie un al treilea gimnaziu clasic in Capitala, cu numirea ‘Gimnasiul clasic “George Sincai”‘.Art. II si ultimul.<br>
+Ministrul Nostru Secretar de Stat la Departamentul Cultelor si Instructiunei Publice este insarcinat cu executarea acestui decret.Dat in Bucuresti, la 8 decembrie 1892.MINISTRUL CULTELOR SI INSTRUCTIUNEI PUBLICE<br>
+Take Ionescu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nr. 3913Monitorul Oficial nr. 204 din 13(25) decembrie 1892, pag. 5935</strong></em></u>
+                                    </p>
+
+                                    <p style="font-style: italic;"><u><em><strong>Numele gimnaziului a fost dat la iniţiativa profesorului ardelean Nicolae Colceag.</strong></em></u>
+                                    </p>
+
+                                    <p style="font-style: italic;"><u><em><strong>In 1919, sub conducerea directorului Gheorghe Nedioglu, Gimnaziul Clasic devine Liceu.</strong></em></u>
+                                    </p>
+
+                                    <p style="font-style: italic;"><u><em><strong>Constructia actualului sediu incepe in 1924. Până în 1928 – anul în care liceul s-a mutat în noua clădire – nu era construită decât aripa dinspre bd. Ion I. C. Brătianu (azi bd. Dimitrie Cantemir).</strong></em></u>
+                                    </p>
+
+                                    <p style="font-style: italic;"><u><em><strong>Dupa reforma invatamantului din 03.08.1948 Liceul Gheorghe Sincai a fost numit Liceul de Baieti nr. 5. In aceeasi cladire functiona si Liceul de Fete nr. 9. In 1953 acesta a devenit Liceul de Fete nr. 21 iar Liceul de Baieti a devenit nr. 20 si au functionat separat pana in 1956 cand au fost comasate si a devenit Scola Medie mixta nr. 20.</strong></em></u>
+                                    </p>
+
+                                    <p style="font-style: italic;"><u><em><strong>La propunerea Ministerului Invatamantului si Culturii, Prezidiul Marii Adunari Nationale prin decretul nr. 257/1956 a autorizat ca Scoala Medie nr. 20 din Bucuresti sa poarte din nou numele de Gheorghe Sincai. Astfel in Ordinul Ministerului Invatanantului 68/01.03.1957 se spune:<br>
+” .. In temeiul Decretului Marii Adunari Nationale nr. 257/1956, art. 1, al. d, Ministerul dispune: – Scoala Medie nr. 20 din orasul Bucuresti, va purta denumirea de Scoala Medie nr. 20 ‘Gheorghe Sincai’.”</strong></em></u>
+                                    </p>
+                                </div>
+                            </div><a class="button widget uib_w_19 d-margins" data-uib="framework7/button" data-ver="0"><span>Back</span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-left panel-cover wrap-element uib_w_21 pannelback" data-uib="framework7/left_sidebar" data-ver="0">
+            <div class="panel-overlay"></div>
+            <div class="col uib_col_1 single-col" data-uib="layout/col" data-ver="0">
+                <div class="widget-container content-area vertical-col"><a class="button widget uib_w_22 d-margins" data-uib="framework7/button" data-ver="0"><span>Acasa</span></a><a class="button widget uib_w_23 d-margins" data-uib="framework7/button" data-ver="0"><span>Istoric</span></a><a class="button widget uib_w_24 d-margins"
+                    data-uib="framework7/button" data-ver="0"><span>Orar</span></a><a class="button widget uib_w_26 d-margins" data-uib="framework7/button" data-ver="0"><span>Catalog</span></a><a class="button widget uib_w_27 d-margins" data-uib="framework7/button"
+                    data-ver="0"><span>Teste</span></a><a class="button widget uib_w_28 d-margins" data-uib="framework7/button" data-ver="0"><span>Button</span></a>
+                    <span class="uib_shim"></span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            
+                        function editOrar()
+                            {
+                             var edit_ziua=prompt("Ce zi doriti sa editati?");
+                             if(edit_ziua=='luni')
+                                 {
+                                     localStorage.oraluni8_9 = prompt("ora 8-9");
+                                     localStorage.oraluni9_10 = prompt("ora 9-10");
+                                     localStorage.oraluni10_11 = prompt("ora 10-11");
+                                     localStorage.oraluni11_12 = prompt("ora 11-12");
+                                     localStorage.oraluni12_13 = prompt("ora 12-13");
+                                     localStorage.oraluni13_14 = prompt("ora 13-14");
+                                     localStorage.oraluni14_15 = prompt("ora 14-15");
+                                 }
+                             if(edit_ziua=='marti'|| edit_ziua=='marți')
+                                 {
+                                     localStorage.oramarti8_9 = prompt("ora 8-9");
+                                     localStorage.oramarti9_10 = prompt("ora 9-10");
+                                     localStorage.oramarti10_11 = prompt("ora 10-11");
+                                     localStorage.oramarti11_12 = prompt("ora 11-12");
+                                     localStorage.oramarti12_13 = prompt("ora 12-13");
+                                     localStorage.oramarti13_14 = prompt("ora 13-14");
+                                     localStorage.oramarti14_15 = prompt("ora 14-15");
+                                     
+                                 }
+                              if(edit_ziua == 'miercuri')
+                                  {
+                                     localStorage.oramiercuri8_9 = prompt("ora 8-9");
+                                     localStorage.oramiercuri9_10 = prompt("ora 9-10");
+                                     localStorage.oramiercuri10_11 = prompt("ora 10-11");
+                                     localStorage.oramiercuri11_12 = prompt("ora 11-12");
+                                     localStorage.oramiercuri12_13 = prompt("ora 12-13");
+                                     localStorage.oramiercuri13_14 = prompt("ora 13-14");
+                                     localStorage.oramiercuri14_15 = prompt("ora 14-15");   
+                                  }
+                                if(edit_ziua == 'joi')
+                                    {
+                                     localStorage.orajoi8_9 = prompt("ora 8-9");
+                                     localStorage.orajoi9_10 = prompt("ora 9-10");
+                                     localStorage.orajoi10_11 = prompt("ora 10-11");
+                                     localStorage.orajoi11_12 = prompt("ora 11-12");
+                                     localStorage.orajoi12_13 = prompt("ora 12-13");
+                                     localStorage.orajoi13_14 = prompt("ora 13-14");
+                                     localStorage.orajoi14_15 = prompt("ora 14-15");
+                                    }
+                                if(edit_ziua == 'vineri')
+                                    {
+                                     localStorage.oravineri8_9 = prompt("ora 8-9");
+                                     localStorage.oravineri9_10 = prompt("ora 9-10");
+                                     localStorage.oravineri10_11 = prompt("ora 10-11");
+                                     localStorage.oravineri11_12 = prompt("ora 11-12");
+                                     localStorage.oravineri12_13 = prompt("ora 12-13");
+                                     localStorage.oravineri13_14 = prompt("ora 13-14");
+                                     localStorage.oravineri14_15 = prompt("ora 14-15");  
+                                    }
+                                               
+                                               
+                                 }
+                         function showOrar()
+                        {
+                            var ziua=prompt("Ce zi doriti sa afisez?")
+                            if(ziua=='luni')
+                                {
+                                  document.getElementById("8-9").innerHTML=localStorage.oraluni8_9;
+                                  document.getElementById("9-10").innerHTML=localStorage.oraluni9_10;
+                                  document.getElementById("10-11").innerHTML=localStorage.oraluni10_11;
+                                  document.getElementById("11-12").innerHTML=localStorage.oraluni11_12;
+                                  document.getElementById("12-13").innerHTML=localStorage.oraluni12_13;
+                                  document.getElementById("13-14").innerHTML=localStorage.oraluni13_14;
+                                  document.getElementById("14-15").innerHTML=localStorage.oraluni14_15;    
+                                }
+                            if(ziua=='marti'|| ziua=='marți')
+                                {
+                                  document.getElementById("8-9").innerHTML=localStorage.oramarti8_9;
+                                  document.getElementById("9-10").innerHTML=localStorage.oramarti9_10;
+                                  document.getElementById("10-11").innerHTML=localStorage.oramarti10_11;
+                                  document.getElementById("11-12").innerHTML=localStorage.oramarti11_12;
+                                  document.getElementById("12-13").innerHTML=localStorage.oramarti12_13;
+                                  document.getElementById("13-14").innerHTML=localStorage.oramarti13_14;
+                                  document.getElementById("14-15").innerHTML=localStorage.oramarti14_15;    
+                                }
+                            
+                            if(ziua=='miercuri')
+                                {
+                                  document.getElementById("8-9").innerHTML=localStorage.oramiercuri8_9;
+                                  document.getElementById("9-10").innerHTML=localStorage.oramiercuri9_10;
+                                  document.getElementById("10-11").innerHTML=localStorage.oramiercuri10_11;
+                                  document.getElementById("11-12").innerHTML=localStorage.oramiercuri11_12;
+                                  document.getElementById("12-13").innerHTML=localStorage.oramiercuri12_13;
+                                  document.getElementById("13-14").innerHTML=localStorage.oramiercuri13_14;
+                                  document.getElementById("14-15").innerHTML=localStorage.oramiercuri14_15;  
+                                }
+                            if(ziua=='joi')
+                                {
+                                  document.getElementById("8-9").innerHTML=localStorage.orajoi8_9;
+                                  document.getElementById("9-10").innerHTML=localStorage.orajoi9_10;
+                                  document.getElementById("10-11").innerHTML=localStorage.orajoi10_11;
+                                  document.getElementById("11-12").innerHTML=localStorage.orajoi11_12;
+                                  document.getElementById("12-13").innerHTML=localStorage.orajoi12_13;
+                                  document.getElementById("13-14").innerHTML=localStorage.orajoi13_14;
+                                  document.getElementById("14-15").innerHTML=localStorage.orajoi14_15;  
+                                }
+                            if(ziua=='vineri')
+                                {
+                                  document.getElementById("8-9").innerHTML=localStorage.oravineri8_9;
+                                  document.getElementById("9-10").innerHTML=localStorage.oravineri9_10;
+                                  document.getElementById("10-11").innerHTML=localStorage.oravineri10_11;
+                                  document.getElementById("11-12").innerHTML=localStorage.oravineri11_12;
+                                  document.getElementById("12-13").innerHTML=localStorage.oravineri12_13;
+                                  document.getElementById("13-14").innerHTML=localStorage.oravineri13_14;
+                                  document.getElementById("14-15").innerHTML=localStorage.oravineri14_15;  
+                                }
+                        }
+                        function citesteOrar()
+                        {var ziua = prompt("ce zi doriti sa citesc?");
+                        var citire;
+                        if(ziua=='luni')
+                            {citire=" 8 to 9: "+localStorage.oraluni8_9 + "., 9 to 10:  "+ localStorage.oraluni9_10 + "., 10 to 11: "+ localStorage.oraluni10_11 + "., 11 to 12: "+localStorage.oraluni11_12 + "., 12 to 13: "+ localStorage.oraluni12_13 + "., 13 to 14: "+ localStorage.oraluni13_14 + "., 14 to 15" + localStorage.oraluni14_15;}
+                        if(ziua=='marti' || ziua == 'marți')
+                            {
+                              citire=" 8 to 9:"+localStorage.oramarti8_9 + " ., 9 to 10: "+ localStorage.oramarti9_10 + " ., 10 to 11: "+ localStorage.oramarti10_11 + "., 11 to 12: "+localStorage.oramarti11_12 + "., 12 to 13: "+ localStorage.oramarti12_13 + "., 13 to 14: "+ localStorage.oramarti13_14 + "., 14 to 15" + localStorage.oramarti14_15;  
+                            }
+                         if(ziua=='miercuri')
+                             {
+                                 citire="8 to 9:"+localStorage.oramiercuri8_9 + "., 9 to 10: "+ localStorage.oramiercuri9_10 + "., 10 to 11:"+ localStorage.oramiercuri10_11 + "., 11 to 12: "+localStorage.oramiercuri11_12 + "., 12 to 13: "+ localStorage.oramiercuri12_13 + "., 13 to 14: "+ localStorage.oramiercuri13_14 + "., 14 to 15: " + localStorage.oramiercuri14_15;
+                             }
+                         if(ziua == 'joi')
+                             {
+                                 citire=" 8 to 9: "+localStorage.orajoi8_9 + "., 9 to 10: "+ localStorage.orajoi9_10 + "., 10 to 11: "+ localStorage.orajoi10_11 + "., 11 to 12: "+localStorage.orajoi11_12 + "., 12 to 13: "+ localStorage.orajoi12_13 + "., 13 to 14: "+ localStorage.orajoi13_14 + ".,  14 to 15: " + localStorage.orajoi14_15;
+                             }
+                         if(ziua == 'vineri')
+                             {
+                                 citire=" 8 to 9: "+localStorage.oravineri8_9 + "., 9 to 10: "+ localStorage.oravineri9_10 + ".,  10 to 11:"+ localStorage.oravineri10_11 + ".,  11 to 12: "+localStorage.oravineri11_12 + "., 12 to 13: "+ localStorage.oravineri12_13 + "., 13 to 14: "+ localStorage.oravineri13_14 + "., 14 to 15: " + localStorage.oravineri14_15;
+                             }
+                            
+                
+                          
+                              TTS.speak( citire,function () {alert('success');}, function (reason) {alert(reason); });
+            
+                          
+                        }
+                        
+                        document.addEventListener("deviceready", pornirecatalog(), false);
+                        function romananote()
+                        { if(localStorage.romana==undefined)
+                            localStorage.romana=" ";
+                         localStorage.romana += document.getElementById("int_note_romana").value + " ";
+                            document.getElementById("note_romana").innerHTML = localStorage.romana;
+                            var x=localStorage.romana.split(" ");
+                            var sumaromana=0;
+                            for(var i=0; i<x.length; i++)
+                                sumaromana += (x[i]*1);
+                            localStorage.romanamedia=sumaromana/(x.length-2);
+                         if(document.getElementById("tezaromanacheck").checked)
+                             document.getElementById("mediaromana").innerHTML=(((localStorage.romanamedia*3)+(document.getElementById("int_teza_romana").value*1))/4);
+                            else document.getElementById("mediaromana").innerHTML=(localStorage.romanamedia);
+                             }
+                        function englezanote()
+                        { if(localStorage.engleza==undefined)
+                            localStorage.engleza=" ";
+                         localStorage.engleza += document.getElementById("int_note_engleza").value + " ";
+                            document.getElementById("note_engleza").innerHTML = localStorage.engleza;
+                            var x=localStorage.engleza.split(" ");
+                            var sumaengleza=0;
+                            for(var i=0; i<x.length; i++)
+                                sumaengleza += (x[i]*1);
+                            localStorage.englezamedia=sumaengleza/(x.length-2);
+                         if(document.getElementById("tezaenglezacheck").checked)
+                             document.getElementById("mediaengleza").innerHTML=(((localStorage.englezamedia*3)+(document.getElementById("int_teza_engleza").value*1))/4);
+                            else document.getElementById("mediaengleza").innerHTML=(localStorage.englezamedia);
+                             }
+                        function francezanote()
+                        { if(localStorage.franceza==undefined)
+                            localStorage.franceza=" ";
+                         localStorage.franceza += document.getElementById("int_note_franceza").value + " ";
+                            document.getElementById("note_franceza").innerHTML = localStorage.franceza;
+                            var x=localStorage.franceza.split(" ");
+                            var sumafranceza=0;
+                            for(var i=0; i<x.length; i++)
+                                sumafranceza += (x[i]*1);
+                            localStorage.francezamedia=sumafranceza/(x.length-2);
+                         if(document.getElementById("tezafrancezacheck").checked)
+                             document.getElementById("mediafranceza").innerHTML=(((localStorage.francezamedia*3)+(document.getElementById("int_teza_franceza").value*1))/4);
+                            else document.getElementById("mediafranceza").innerHTML=(localStorage.francezamedia);
+                             }
+                        function latinanote()
+                        { if(localStorage.latina==undefined)
+                            localStorage.latina=" ";
+                         localStorage.latina += document.getElementById("int_note_latina").value + " ";
+                            document.getElementById("note_latina").innerHTML = localStorage.latina;
+                            var x=localStorage.latina.split(" ");
+                            var sumalatina=0;
+                            for(var i=0; i<x.length; i++)
+                                sumalatina += (x[i]*1);
+                            localStorage.latinamedia=sumalatina/(x.length-2);
+                         if(document.getElementById("tezalatinacheck").checked)
+                             document.getElementById("medialatina").innerHTML=(((localStorage.latinamedia*3)+(document.getElementById("int_teza_latina").value*1))/4);
+                            else document.getElementById("medialatina").innerHTML=(localStorage.latinamedia);
+                             }
+                        function matenote()
+                        { if(localStorage.mate==undefined)
+                            localStorage.mate=" ";
+                         localStorage.mate += document.getElementById("int_note_mate").value + " ";
+                            document.getElementById("note_mate").innerHTML = localStorage.mate;
+                            var x=localStorage.mate.split(" ");
+                            var sumamate=0;
+                            for(var i=0; i<x.length; i++)
+                                sumamate += (x[i]*1);
+                            localStorage.matemedia=sumamate/(x.length-2);
+                         if(document.getElementById("tezamatecheck").checked)
+                             document.getElementById("mediamate").innerHTML=(((localStorage.matemedia*3)+(document.getElementById("int_teza_mate").value*1))/4);
+                            else document.getElementById("mediamate").innerHTML=(localStorage.matemedia);
+                             }
+                        
+                        
+                        
+                        function formatarecatalog()
+                        {    
+                            if(document.getElementById("romanacheck").checked)
+                                {localStorage.romanachecked=1;}
+                            else {localStorage.romanachecked=0}
+                            if(document.getElementById("englezacheck").checked)
+                                {localStorage.englezachecked=1;}
+                            else {localStorage.englezachecked=0}
+                            if(document.getElementById("francezacheck").checked)
+                                {localStorage.francezachecked=1;}
+                            else {localStorage.francezachecked=0}
+                            if(document.getElementById("latinacheck").checked)
+                                {localStorage.latinachecked=1;}
+                            else {localStorage.latinachecked=0}
+                        }
+                        
+                        function pornirecatalog()
+                        { 
+                         if(localStorage.romanachecked==1)
+                            {document.getElementById("romana").style.backgroundColor="#a9ffa3";
+                            }
+                            else{document.getElementById("romana").style.backgroundColor="#fca6a6";
+                                }
+                         if(localStorage.englezachecked==1)
+                            {document.getElementById("engleza").style.backgroundColor="#a9ffa3";
+                            }
+                            else{document.getElementById("engleza").style.backgroundColor="#fca6a6";
+                                }
+                         if(localStorage.francezachecked==1)
+                            {document.getElementById("franceza").style.backgroundColor="#a9ffa3";
+                            }
+                            else{document.getElementById("franceza").style.backgroundColor="#fca6a6";
+                                }
+                         if(localStorage.latinachecked==1)
+                            {document.getElementById("latina").style.backgroundColor="#a9ffa3";
+                            }
+                            else{document.getElementById("latina").style.backgroundColor="#fca6a6";
+                                }    
+                        }
+                        
+                        function colorarecatalog()
+                        {   
+                            if(document.getElementById("romanacheck").checked)
+                            {document.getElementById("romana").style.backgroundColor="#a9ffa3";
+                            localStorage.romanachecked=1;}
+                            else{document.getElementById("romana").style.backgroundColor="#fca6a6";
+                                localStorage.romanachecked=0;}
+                            if(document.getElementById("englezacheck").checked)
+                            {document.getElementById("engleza").style.backgroundColor="#a9ffa3";
+                             localStorage.englezachecked=1;}
+                            else{document.getElementById("engleza").style.backgroundColor="#fca6a6";
+                                localStorage.englezachecked=0;}
+                            if(document.getElementById("francezacheck").checked)
+                            {document.getElementById("franceza").style.backgroundColor="#a9ffa3";
+                             localStorage.francezachecked=1;}
+                            else{document.getElementById("franceza").style.backgroundColor="#fca6a6";
+                                localStorage.francezachecked=0;}
+                            if(document.getElementById("latinacheck").checked)
+                            {document.getElementById("latina").style.backgroundColor="#a9ffa3";
+                             localStorage.latinachecked=1;}
+                            else{document.getElementById("latina").style.backgroundColor="#fca6a6";
+                                localStorage.latinachecked=0;}
+                            if(document.getElementById("matecheck").checked)
+                            {document.getElementById("mate").style.backgroundColor="#a9ffa3";
+                             localStorage.matechecked=1;}
+                            else{document.getElementById("mate").style.backgroundColor="#fca6a6";
+                                localStorage.matecheckedd=0;}
+                            if(document.getElementById("fizicacheck").checked)
+                            {document.getElementById("fizica").style.backgroundColor="#a9ffa3";
+                             localStorage.fizicachecked=1;}
+                            else{document.getElementById("fizica").style.backgroundColor="#fca6a6";
+                                localStorage.fizicachecked=0;}
+                            if(document.getElementById("chimiecheck").checked)
+                            {document.getElementById("chimie").style.backgroundColor="#a9ffa3";
+                             localStorage.chimiechecked=1;}
+                            else{document.getElementById("chimie").style.backgroundColor="#fca6a6";
+                                localStorage.chimiecheckedd=0;}
+                            if(document.getElementById("biocheck").checked)
+                            {document.getElementById("biologie").style.backgroundColor="#a9ffa3";
+                             localStorage.biochecked=1;}
+                            else{document.getElementById("biologie").style.backgroundColor="#fca6a6";
+                                localStorage.biochecked=0;}
+                            if(document.getElementById("istoriecheck").checked)
+                            {document.getElementById("istorie").style.backgroundColor="#a9ffa3";
+                             localStorage.istoriechecked=1;}
+                            else{document.getElementById("istorie").style.backgroundColor="#fca6a6";
+                                localStorage.istoriechecked=0;}
+                            if(document.getElementById("geogracheck").checked)
+                            {document.getElementById("geografie").style.backgroundColor="#a9ffa3";
+                             localStorage.geograchecked=1;}
+                            else{document.getElementById("geografie").style.backgroundColor="#fca6a6";
+                                localStorage.geograchecked=0;}
+                            
+                            
+                        }
+        </script>
+        <script type="application/javascript" src="framework7/my-app.js">
+            <div class="panel-overlay"></div>
+        </script>
+    </body>
+
+</html>
